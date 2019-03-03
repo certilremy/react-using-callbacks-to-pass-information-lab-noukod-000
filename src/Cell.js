@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 export default class Cell extends Component {
-  
+
   constructor(props) {
     super(props)
     console.log(this.props.color)
@@ -16,7 +16,7 @@ export default class Cell extends Component {
       color: newColor
     })
   }
-  
+
   render() {
     return (
       <div className="cell"
@@ -25,6 +25,6 @@ export default class Cell extends Component {
       </div>
     )
   }
-  
-  
+
+
 }
