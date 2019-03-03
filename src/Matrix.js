@@ -1,48 +1,21 @@
-mport React, { Component } from 'react';
-import chromeBoi from './data.js'
-import Cell from './Cell.js'
-import ColorSelector from './ColorSelector.js'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { configure, shallow } from 'enzyme';
+import { expect } from 'chai';
+// import sinon from 'sinon';
 
-export default class Matrix extends Component {
+import Adapter from 'enzyme-adapter-react-16';
 
-  constructor() {
-    super()
-    this.state = {
-      selectedColor: '#FFF'
-    }
-  }
+configure({ adapter: new Adapter() });
 
-  setSelectedColor = (newColor) => {
-    this.setState({
-      selectedColor: newColor
-    })
-  }
-
-  getSelectedColor = () => (this.state.selectedColor)
-
-  genRow = (vals) => (
-    vals.map((val, idx) => <Cell key={idx} color={val} getSelectedColor={this.getSelectedColor} />)
-  )
-
-  genMatrix = () => (
-    this.props.values.map((rowVals, idx) => <div key={idx} className="row">{this.genRow(rowVals)}</div>)
-  )
+import Matrix from '../src/Matrix'
 
 
-  render() {
+describe('<Matrix />', () => {
+  
+  it("change me to true in test/matrix.test.js once your app is working!", () => {
+    // did you make sure to pass a function as a prop to Cell instead of the selected value itself?
+    expect(true).to.equal(true)
+  })
 
-    return (
-      <div id="app">
-        <ColorSelector setSelectedColor={this.setSelectedColor} />
-        <div id="matrix">
-          {this.genMatrix()}
-        </div>
-      </div>
-    )
-  }
-
-}
-
-Matrix.defaultProps = {
-  values: chromeBoi
-}
+})
